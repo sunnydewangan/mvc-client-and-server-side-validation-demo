@@ -11,13 +11,14 @@ namespace CustomerManagement.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult Display()
         {
             return View(new Customer());  //When the user browses the Display page directly from the browser
         }
 
         [HttpPost]
-        public ActionResult Submit(Customer customer)
+        public ActionResult Display(Customer customer)
         {
             if (ModelState.IsValid)   //Server side validation check
             {
