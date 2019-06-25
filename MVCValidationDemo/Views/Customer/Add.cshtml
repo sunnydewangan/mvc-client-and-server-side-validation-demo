@@ -1,0 +1,60 @@
+﻿@model CustomerManagement.Models.Customer
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+
+    @* The Jquery files should load in the following sequence *@
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Submit", "Customer", FormMethod.Post))
+        {
+            <table width="50%">
+                <tr>
+                    <td>
+                        Customer Code :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(customer => customer.CustomerCode)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color:red">
+                        @Html.ValidationMessageFor(customer => customer.CustomerCode)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Customer Name :
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(customer => customer.CustomerName)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="color:red">
+                        @Html.ValidationMessageFor(customer => customer.CustomerName)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Submit" id="txtSubmit" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>
